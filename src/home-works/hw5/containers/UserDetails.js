@@ -7,6 +7,7 @@ import useData from "../hooks/useData";
 import Album from "./Album";
 import NotFound from './NotFound';
 import Todos from './Todos';
+import Posts from './Posts';
 
 
 function UserDetails() {
@@ -50,6 +51,7 @@ function UserDetails() {
                 <Icon name='clock' />
                 <Link to={`${url}/todos`}>{todos.length} Todos</Link>
               </Card.Content>
+              <Link className = 'buttons' to ="/posts">Posts</Link>
             </Card>
           </Grid.Column>
           <Grid.Column width={10}>
@@ -60,11 +62,11 @@ function UserDetails() {
               <Route path={`${path}/albums/:albumId`}>
                 <Album />
               </Route>
-              <Route path='*'>
-                <Header as='h3'>Select an album</Header>
-              </Route>
               <Route path={`${path}/todos`}>
                 <Todos />
+              </Route>
+              <Route path='/posts'>
+                <Posts />
               </Route>
               <Route path='*'>
                 <NotFound />
