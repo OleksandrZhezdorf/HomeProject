@@ -6,10 +6,10 @@ import useData from "../hooks/useData";
 
 
 function Todos() {
-    const { userId, todoId } = useParams();
-    const [todos] = useData(`/users/${userId}/todos`, []);
-    const [todo, , error] = useData(`/todos/${todoId}`, {});
-    const [user, isLoading] = useData(`/users/${userId}`, null);
+    const { userId } = useParams();
+    const [error] = useData(`/users/${userId}/todos`, {});
+    const [todos, isLoading] = useData(`/users/${userId}/todos`, []);
+    console.log(todos);
 
     if (error && error.status === 404) {
         console.log(error);
@@ -18,10 +18,10 @@ function Todos() {
 
     return (
         <Container>
+            <Header>Todo list</Header>
             <LoadingOverlay active={isLoading} />
-            <Header>{todo.title}</Header>
             <List>
-              {todos.map(todo => <List.Item>{todo.title}</List.Item> )}
+                {todos.map(todo => <List.Item>{todo.title}</List.Item>)}
             </List>
         </Container>
     )

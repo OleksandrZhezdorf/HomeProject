@@ -51,13 +51,13 @@ function UserDetails() {
                 <Icon name='clock' />
                 <Link to={`${url}/todos`}>{todos.length} Todos</Link>
               </Card.Content>
-              <Link className = 'buttons' to ="/posts">Posts</Link>
+              <Link to ={`${url}/posts`} className = 'buttons'>Posts</Link>
             </Card>
           </Grid.Column>
           <Grid.Column width={10}>
             <Switch>
               <Route exact path={path}>
-                <Header as='h3'>Select an album</Header>
+                <Header as='h3'>Select an album or an action</Header>
               </Route>
               <Route path={`${path}/albums/:albumId`}>
                 <Album />
@@ -65,9 +65,9 @@ function UserDetails() {
               <Route path={`${path}/todos`}>
                 <Todos />
               </Route>
-              <Route path='/posts'>
-                <Posts />
-              </Route>
+              <Route path={`${path}/posts`}>
+	                <Posts userId={userId} />
+	              </Route>
               <Route path='*'>
                 <NotFound />
               </Route>

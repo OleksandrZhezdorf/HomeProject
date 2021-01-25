@@ -39,7 +39,7 @@ body {
   
   .slide-exit {
     position: absolute;
-    top: 0;
+    top: 30 px;
     left: 0;
     width: 100%;
     transform: translateX(0%);
