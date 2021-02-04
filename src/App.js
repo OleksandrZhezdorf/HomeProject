@@ -14,13 +14,16 @@ import { LocalStorage } from './home-works/hw4/useLocalStorage';
 import { OnlineStatus } from './home-works/hw4/userIsOnline';
 import { DocumentTitle } from './home-works/hw4/useDocumentTitle';
 import BlogV2 from './home-works/hw5/Blog';
+import TodoApp from "./class-works/cw5/ReduxApp/TodoApp";
+import ProductsApp from './home-works/hw6/ReduxApp/ProductsApp';
+
 
 
 class App extends React.Component {
   render() {
     return (
       <div className='app'>
-        <BlogV2 />
+        <ProductsApp/>
       </div>
     )
   }
