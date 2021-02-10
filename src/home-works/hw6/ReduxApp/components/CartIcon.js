@@ -3,7 +3,7 @@ import { Icon } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 
 function CartIcon() {
-  const cart = useSelector(state => state.product.list);
+  const cart = useSelector(state => state.product.cart);
   const count = cart.reduce((sum, product) => {
     return sum + (1 * product.count)
   }, 0);

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Header, Menu } from 'semantic-ui-react';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
-
 import NotFound from '../../hw5/containers/NotFound';
 import ProductControl from './components/ProductControl';
 import CartList from './components/CartList';

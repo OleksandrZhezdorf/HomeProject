@@ -1,13 +1,15 @@
   
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Container, Input } from "semantic-ui-react";
 import { addProduct } from "../redux/actions/product";
+import useLocalStorage from '../redux/localStorage';
 
 function AddProductForm() {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [title, setTitle] = useLocalStorage('');
+  const [quantity, setQuantity] = useLocalStorage('');
+
 
   const createProduct = () => {
     dispatch(addProduct(title, quantity));

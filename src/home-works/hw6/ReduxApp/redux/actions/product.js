@@ -23,18 +23,14 @@ export const completeProduct = productId => ({
 });
 
 
-export const increment = (productId, quantity) => ({
+export const increment = productId => ({
     type: INCREMENT,
-    payload: {
-      productId,
-      quantity
-    }
+    payload: productId
+
 });
 
-export const decrement = (productId, quantity) => ({
+export const decrement = productId => ({
     type: DECREMENT,
-    payload: {
-      productId,
-      quantity
-    }
+    payload: productId
+
 });

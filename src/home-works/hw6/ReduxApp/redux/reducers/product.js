@@ -38,13 +38,11 @@ const productReducer = (state = initialState, action) => {
       quantity: action.payload.quantity,
     }];
     case COMPLETE_PRODUCT: return state.map(productItem =>
-      productItem.id === action.payload ? { ...productItem, completed: true } : productItem);
-    case DECREMENT:
-      return state.map((productItem, index = action.payload.quantity) =>
-        productItem.id === action.payload ? { ...productItem, quantity: index - 1 } : productItem);
+      productItem.id === action.payload ? { ...productItem, completed: true} : productItem);
+    case REMOVE_PRODUCT: return state.filter(productItem => productItem.id !== action.payload);
     case INCREMENT:
-      return state.map((productItem, index = action.payload.quantity) =>
-        productItem.id === action.payload ? { ...productItem, quantity: index + 1 } : productItem);
+      return state.map(productItem =>
+        (productItem.id === action.payload && productItem.quantity > 0) ? { ...productItem, quantity: productItem.quantity - 1} : productItem);
     default: return state;
   }
 };

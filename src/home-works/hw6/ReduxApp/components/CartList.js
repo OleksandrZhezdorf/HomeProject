@@ -15,6 +15,7 @@ function CartList() {
       { filteredProductList.length === 0 &&  <List.Item>No products to show, please create one or remove the filter</List.Item> }
       { filteredProductList.map(productItem => <ProductItem key={productItem.id} product={productItem}/>) }
     </List>
+    
   );
 }
 
