@@ -17,9 +17,12 @@ import BlogV2 from './home-works/hw5/Blog';
 import TodoApp from "./class-works/cw5/ReduxApp/TodoApp";
 import ProductsApp from './home-works/hw6/ReduxApp/ProductsApp';
 import RedditApp from './class-works/cw6/RedditApp/RedditApp';
-import RedditApp2 from './home-works/hw7/RedditApp/RedditApp';
 import CW7 from './class-works/cw7/App';
 import HW9 from './home-works/hw9/App';
+import DZ6 from './home-works/GithubGistExample/GistsApp';
+import GitApp from './home-works/hw7/GitApp';
+
+
 
 
 
@@ -27,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='app'>
-        <HW9/>
+        <GitApp/>
       </div>
     )
   }
