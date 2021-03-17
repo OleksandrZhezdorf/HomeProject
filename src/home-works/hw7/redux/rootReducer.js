@@ -1,9 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import gistIDReducer from './reducers/gist';
+import gistsReducer from './reducers/gist';
+import rawReducer from './reducers/raw';
+
 
 const rootReducer = combineReducers({
-    gists: gistIDReducer,
-
+    gists: gistsReducer,
+    raws: rawReducer
   });
   
   export default rootReducer;
