@@ -14,7 +14,6 @@ export const selectID = id => ({
 
 export const fetchRawsByID = id => (dispatch, getState) => {
   const currentState = getState();
-  if (currentState.files[id] && currentState.files[id].list.length > 0) return;
   dispatch({
     type: GET_RAW_BY_ID_PENDING,
     meta: {

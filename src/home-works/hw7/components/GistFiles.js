@@ -23,9 +23,6 @@ function GetFiles() {
 
   return (
     <Container>
-      <div>
-        {selectedGists.owner.login}
-      </div>
       {files.map(file =>
        <div>
          <div>

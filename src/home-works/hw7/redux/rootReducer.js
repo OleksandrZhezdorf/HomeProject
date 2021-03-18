@@ -1,11 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit'
 import gistsReducer from './reducers/gist';
-import rawReducer from './reducers/raw';
+import rawReducer, { selectedRawReducer } from './reducers/raw';
 
 
 const rootReducer = combineReducers({
     gists: gistsReducer,
-    raws: rawReducer
+    raws: rawReducer,
+    selectedRaws: selectedRawReducer
   });
   
   export default rootReducer;

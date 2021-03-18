@@ -4,10 +4,9 @@ import {
   GET_RAW_BY_ID_SUCCESS,
   GET_RAW_BY_ID_ERROR
 } from "../actions/raws";
-import { combineReducers } from "redux";
 
 
-function selectedRawReducer(state = '', action) {
+export function selectedRawReducer(state = '', action) {
   if (action.type === SELECT_ID) {
     return action.payload;
   }
@@ -21,7 +20,7 @@ const initialState = {
 };
 
 
-function rawsReducer(state = initialState, action) {
+export default function IDRawReducer(state = initialState, action) {
   switch (action.type) {
     case GET_RAW_BY_ID_PENDING:
       return {
@@ -32,7 +31,10 @@ function rawsReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        list: action.payload,
+        list: state.list.map((file) => ({
+          ...file,
+          fileContent: action.payload
+        }))
       };
     case GET_RAW_BY_ID_ERROR:
       return {
@@ -44,25 +46,6 @@ function rawsReducer(state = initialState, action) {
   }
 }
 
-const IDRawReducer = (state = {}, action) => {
-  switch (action.type) {
-    case GET_RAW_BY_ID_PENDING:
-    case GET_RAW_BY_ID_SUCCESS:
-    case GET_RAW_BY_ID_SUCCESS:
-      return {
-        ...state,
-        [action.meta.id]: rawsReducer(state[action.meta.id], action.meta.files.map((file, index) => ({
-          ...file,
-          fileContent: action.payload[index]
-        })))
-      };
-    default: return state;
-  }
-};
 
-const rawReducer = combineReducers({
-  IDraws: IDRawReducer,
-  selectedRaws: selectedRawReducer
-});
 
-export default rawReducer;
+
